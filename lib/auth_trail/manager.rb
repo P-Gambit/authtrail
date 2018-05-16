@@ -17,8 +17,7 @@ module AuthTrail
             identity: identity,
             success: true,
             request: request,
-            user: user,
-            fingerprint: fingerprint(request, opts)
+            user: user
           )
         end
       end
@@ -35,15 +34,10 @@ module AuthTrail
               identity: identity,
               success: false,
               request: request,
-              failure_reason: opts[:message].to_s,
-              fingerprint: fingerprint(request, opts)
+              failure_reason: opts[:message].to_s
             )
           end
         end
-      end
-
-      def fingerprint(req, opts)
-        req.params[opts[:scope]] && req.params[opts[:scope]][:fingerprint]
       end
     end
   end
