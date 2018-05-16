@@ -22,7 +22,7 @@ module AuthTrail
       context: "#{request.params[:controller]}##{request.params[:action]}",
       ip: request.remote_ip,
       user_agent: request.user_agent,
-      referrer: request.referrer.
+      referrer: request.referrer,
       fingerprint: request.params[:account][:fingerprint]
     }
 
