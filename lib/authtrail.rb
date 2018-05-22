@@ -22,8 +22,7 @@ module AuthTrail
       context: "#{request.params[:controller]}##{request.params[:action]}",
       ip: request.remote_ip,
       user_agent: request.user_agent,
-      referrer: request.referrer,
-      fingerprint: request.params[:account][:fingerprint]
+      referrer: request.referrer
     }
 
     # if exclude_method throws an exception, default to not excluding
