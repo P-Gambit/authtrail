@@ -11,7 +11,7 @@ module AuthTrail
   end
   self.geocode = true
 
-  def self.track(strategy:, scope:, identity:, success:, request:, user: nil, failure_reason: nil)
+  def self.track(strategy:, scope:, identity:, success:, request:, user: nil, failure_reason: nil, fingerprint: nil)
     info = {
       strategy: strategy,
       scope: scope,
@@ -22,7 +22,8 @@ module AuthTrail
       context: "#{request.params[:controller]}##{request.params[:action]}",
       ip: request.remote_ip,
       user_agent: request.user_agent,
-      referrer: request.referrer
+      referrer: request.referrer,
+      fingerprint: fingerprint
     }
 
     # if exclude_method throws an exception, default to not excluding
