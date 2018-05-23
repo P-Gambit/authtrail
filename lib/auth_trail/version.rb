@@ -1,3 +1,3 @@
 module AuthTrail
-  VERSION = "0.1.3b"
+  VERSION = "0.1.3c"
 end

@@ -19,7 +19,7 @@ module AuthTrail
             request: request,
             user: user,
             fingerprint: request.params[opts[:scope]][:fingerprint],
-            referrer: cookies['referral_token']
+            referrer: request.params[opts[:scope]][:referral]
           )
         end
       end
@@ -38,7 +38,7 @@ module AuthTrail
               request: request,
               failure_reason: opts[:message].to_s,
               fingerprint: request.params[opts[:scope]][:fingerprint],
-              referrer: cookies['referral_token']
+              referrer: request.params[opts[:scope]][:referral]
             )
           end
         end
