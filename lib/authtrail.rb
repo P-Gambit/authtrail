@@ -11,7 +11,7 @@ module AuthTrail
   end
   self.geocode = true
 
-  def self.track(strategy:, scope:, identity:, success:, request:, user: nil, failure_reason: nil, fingerprint: nil)
+  def self.track(strategy:, scope:, identity:, success:, request:, user: nil, failure_reason: nil, fingerprint: nil, referrer: nil)
     info = {
       strategy: strategy,
       scope: scope,
@@ -22,7 +22,7 @@ module AuthTrail
       context: "#{request.params[:controller]}##{request.params[:action]}",
       ip: request.remote_ip,
       user_agent: request.user_agent,
-      referrer: request.referrer,
+      referrer: referrer,
       fingerprint: fingerprint
     }
 
